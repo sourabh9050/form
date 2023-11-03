@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+        margin: auto;
+
+    }
+
+    table {
+        border: 2px solid black;
+        border-radius: 2px 3px 3px;
+    }
+</style>
+
+<body id="body">
+    <center>
+        <input placeholder="Name:-" class="form-control" type="text" id="name"><br>
+        <input placeholder="Age:-" class="form-control" type="text" id="age"><br>
+        <input placeholder="Address:-" class="form-control" type="text" id="address"><br>
+        <button type="button" class="btn btn-danger" onclick="Add()">Save</button><br>
+     
+     
+
+
+        <table class="table" id="tab">
+            <thead>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>Opreations</th>
+            </thead>
+            <tbody id="bdy">
+
+            </tbody>
+        </table>
+    </center>
+    <script>
+        function Add() {
+
+            console.log("hii")
+            var name = document.getElementById('name').value
+            var age = document.getElementById('age').value
+            var address = document.getElementById('address').value
+            var row = document.createElement("tr")
+            var data = document.createElement("td")
+            var data1 = document.createElement('td')
+            var data2 = document.createElement("td")
+            var data3 = document.createElement("td")
+            var btn = document.createElement("button")
+
+            btn.innerHTML = "delete"
+            btn.setAttribute("onclick", "del(this)")
+            data.innerHTML = name
+            data1.innerHTML = age
+            data2.innerHTML = address
+            data3.append(btn)
+            row.append(data)
+            row.append(data1)
+            row.append(data2)
+            row.append(data3)
+            document.getElementById('bdy').append(row)
+
+        }
+
+        function del(id) {
+            var box = id.parentNode.parentNode
+            box.style.display = "none"
+
+        }
+     
+    </script>
+</body>
+
+</html>
